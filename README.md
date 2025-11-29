@@ -43,7 +43,7 @@ This project is built with a combination of front-end and back-end technologies:
 **1. Download the assets:**
    - All necessary media files are available for download from the following Google Drive link:
    
-     [**Download All Project Assets from Google Drive**](#)
+     [**[Download All Project Assets from Google Drive](https://drive.google.com/drive/folders/19nf19hrqA5fGVTqNgtV35gdCH4-8HHkz?usp=drive_link)**](#)
 
 **2. What's included:**
    - **Website Media:** High-resolution images of honey products, ingredients for recipes, and branding assets.
