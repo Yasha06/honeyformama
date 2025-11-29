@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Крафтовий мед</title>
+    <link rel="icon" type="image/png" href="../static/assets/favicon1.png">
+    <link rel="stylesheet" href="../static/css/cart.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-light fixed-top p-0 border-top border-4 border-warning">
+        
+        <div class="container-fluid">
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myCustomNavbar" aria-controls="myCustomNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse justify-content-between" id="myCustomNavbar">
+                
+                <ul class="navbar-nav mb-2 mb-lg-0 custom-links nav-left-group">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('home') }}">Про нас</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('recipes') }}">Рецепти</a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex align-items-center logo-custom-brand me-lg-0">
+                    <div class="center-icon">
+                        <img src="../static/assets/favicon1.png" alt="Іконка меду" width="65" height="65">
+                    </div>
+                    <div class="logo">
+                        <span class="pure">МЕД ДЛЯ</span>
+                        <span class="maple">МАМИ</span>
+                    </div>
+                </div>
+
+                <ul class="navbar-nav mb-2 mb-lg-0 custom-links nav-right-group">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('shop') }}">Магазин</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('cart') }}">Кошик</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container" style="margin-top: 50px;">
+        <h1>Мій Кошик</h1>
+
+        <div class="cart-content">
+            <section class="cart-items">
+                <h2>Товари у замовленні</h2>
+
+                {% for item in cart %}
+    <div class="cart-item">
+        <img src="{{ url_for('static', filename='assets/' + item.image) }}"
+             alt="{{ item.name }}"
+             class="item-img">
+
+        <div class="item-details">
+            <h3>{{ item.name }}</h3>
+            <p class="item-price-unit">Ціна за одиницю: {{ item.price }} UAH</p>
+        </div>
+
+        <div class="item-quantity">
+            <form action="{{ url_for('update_cart') }}" method="POST">
+                <label for="qty-{{ loop.index0 }}">Кількість:</label>
+
+                <input type="hidden" name="index" value="{{ loop.index0 }}">
+
+                <input type="number"
+                       id="qty-{{ loop.index0 }}"
+                       name="quantity"
+                       value="{{ item.quantity }}"
+                       min="1"
+                       onchange="this.form.submit()">
+            </form>
+        </div>
+
+        <div class="item-total">
+            <strong>{{ item.price * item.quantity }} UAH</strong>
+        </div>
+
+        <form action="{{ url_for('remove_from_cart') }}" method="POST" style="margin-left: auto;">
+            <input type="hidden" name="index" value="{{ loop.index0 }}">
+            <button type="submit" class="remove-btn">Видалити</button>
+        </form>
+
+    </div>
+    {% else %}
+        <p class="text-center py-5">Ваш кошик порожній.</p>
+    {% endfor %}
+
+            </section>
+
+                
+
+            <aside class="cart-summary">
+    <h2>Підсумок замовлення</h2>
+
+    <div class="summary-line">
+        <span>Проміжна сума:</span>
+        <span id="subtotal">{{ total }} UAH</span>
+    </div>
+
+    <div class="summary-line">
+        <span>Доставка:</span>
+        <span>Розраховується на наступному кроці</span>
+    </div>
+
+    <div class="summary-line total">
+        <strong>Усього до сплати:</strong>
+        <strong id="total-amount">{{ total }} UAH</strong>
+    </div>
+
+    <a href="{{ url_for('checkout') }}" class="btn btn-checkout">Оформити замовлення</a>
+    <a href="{{ url_for('shop') }}" class="btn btn-continue">Продовжити покупки</a>
+</aside>
+        </div>
+    </main>
+
+
+<footer class="bg-body-tertiary text-center">
+  <div class="container p-4"></div>
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2025. Крафтове виробництво"Мед для МАМИ"
+    <a class="text-body">honeyformama@gmail.com</a>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

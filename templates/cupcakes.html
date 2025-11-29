@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Крафтовий мед</title>
+    <link rel="icon" type="image/png" href="../static/assets/favicon1.png">
+    <link rel="stylesheet" href="../static/css/cupcakes.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-light fixed-top p-0 border-top border-4 border-warning">
+        
+        <div class="container-fluid">
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myCustomNavbar" aria-controls="myCustomNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse justify-content-between" id="myCustomNavbar">
+                
+                <ul class="navbar-nav mb-2 mb-lg-0 custom-links nav-left-group">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('home') }}">Про нас</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('recipes') }}">Рецепти</a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex align-items-center logo-custom-brand me-lg-0">
+                    <div class="center-icon">
+                        <img src="../static/assets/favicon1.png" alt="Іконка меду" width="65" height="65">
+                    </div>
+                    <div class="logo">
+                        <span class="pure">Мед для</span>
+                        <span class="maple">МАМИ</span>
+                    </div>
+                </div>
+
+                <ul class="navbar-nav mb-2 mb-lg-0 custom-links nav-right-group">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('shop') }}">Магазин</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('cart') }}">Кошик</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+<h4 style="margin-top: 60px; color: #4B3621; text-align: center; font-family: Arial, sans-serif; font-weight: bold;">Кекси з медом</h4>    
+
+
+<div class="row no-gutters" style = "margin-top: 70px;">
+  <div class="col-12 col-sm-4 col-md-8">
+    <img src = "../static/assets/keks.jpg" style="margin-left: 70px; width: 80%; height: 500px;">
+  </div>
+  <div class="col-8 col-md-4">
+    <p class = "description"  style="margin-right: 65px;">Ароматні кекси з медом — це ніжна, пухка випічка з приємним солодким присмаком та легким медовим ароматом. Вони чудово підходять для сімейного сніданку, чаювання чи святкового столу. Завдяки меду кекси виходять не лише солодкими, а й м’якими, злегка вологими всередині та з рум’яною скоринкою зовні. Приготувати їх дуже просто — достатньо змішати основні інгредієнти, випекти й насолоджуватися домашнім затишком і теплим ароматом свіжої випічки.</p>
+  </div>
+</div>
+
+<h1 style="margin-top: 65px; text-align: left; color: #4B3621; font-family: Arial, sans-serif; font-size: 30px; background-color: #FFF8E1; margin-left: 120px;">Інгредієнти</h1>
+
+<div class="ingredients-list-wrapper" style="background-color: #FFF8E1; padding: 20px 0;">
+    
+    <div class="container">
+        <div class="controls text-center mb-4">
+            <label for="portions" style="font-weight: bold; color: #4B3621;">Кількість порцій:</label>
+            <input type="number" id="portions" value="10" data-base-portions="10"
+                   min="1" step="1" oninput="recalcIngredients()"
+                   style="padding: 5px 10px; width: 100px; border: 1px solid #ccc; border-radius: 4px; text-align: center; font-weight: bold;">
+        </div>
+
+        <div id="ingredient-list" class="row justify-content-center" style="margin-left: 50px;">
+
+            <ul class="col-md-7 col-lg-6">
+                <li data-original-amount="20">Мед: <span class="amount">20</span> г</li>
+                <li data-original-amount="10">Сода: <span class="amount">10</span> г</li>
+                <li data-original-amount="50">Олія: <span class="amount">50</span> мл</li>
+                <li data-original-amount="250">Вода: <span class="amount">250</span> мл</li>
+            </ul>
+
+            <ul class="col-md-7 col-lg-6">
+                 <li data-original-amount="75">Цукор: <span class="amount">75</span> г</li>
+                 <li data-original-amount="0.5">Сіль: <span class="amount">0.5</span> г</li>
+                <li data-original-amount="150">Борошно: <span class="amount">150</span> г</li>
+           </ul>
+        </div>
+
+        <div class="col-lg-5 col-md-12 text-center align-self-start mt-4 mt-lg-0" style="margin-left: 200px;">
+            <img src="../static/assets/ingredients.jpg"
+                 alt="Зображення готового медовика або ключових інгредієнтів" 
+                 class="img-fluid rounded shadow-sm"
+                 style="max-height: 350px; object-fit: cover;">
+        </div>
+        
+    </div>
+</div>
+
+<p style="text-align: left; margin-top: 10px; margin-left: 120px;">
+    <small>Оригінальний рецепт розрахований на 10 порцій.</small>
+</p>
+
+    <div class = "steps">
+        <h3>Крок 1</h3>
+        <p>Теплу воду з'єднати з медом, додати цукор і сіль, влити олію і добре перемішати.</p>
+        <h3>Крок 2</h3>
+        <p>У приготовлену суміш всипати просіяне борошно з содою і ретельно вимішати, щоб не залишилося грудочок і тісто було однорідним, таким, як для оладок.</p>
+        <h3>Крок 3</h3>
+        <p>Підготовлене тісто викладати в форми для мафінів, заповнюючи їх на 2/3.</p>
+        <h3>Крок 4</h3>
+        <p>Випікати за 200 ° С близько 20 хвилин до золотистого рум'янцю.</p>
+        <h3>Крок 5</h3>
+        <p>Готові мафіни вийняти з форм після охолодження.</p>
+        <p>Смак мафінів можна збагатити, додавши в тісто родзинки, подрібнені сухофрукти, цукати або горіхи.</p>
+        
+        
+        <div class="calculator">
+
+         </div>
+
+
+    </div>
+
+
+
+
+
+
+<footer class="bg-body-tertiary text-center">
+  <div class="container p-4"></div>
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2025. Крафтове виробництво"Мед для МАМИ"
+    <a class="text-body">honeyformama@gmail.com</a>
+  </div>
+</footer>
+
+<script src = "../static/js/recipes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

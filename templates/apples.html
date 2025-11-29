@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Крафтовий мед</title>
+    <link rel="icon" type="image/png" href="../static/assets/favicon1.png">
+    <link rel="stylesheet" href="../static/css/apples.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-light fixed-top p-0 border-top border-4 border-warning">
+        
+        <div class="container-fluid">
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myCustomNavbar" aria-controls="myCustomNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse justify-content-between" id="myCustomNavbar">
+                
+                <ul class="navbar-nav mb-2 mb-lg-0 custom-links nav-left-group">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('home') }}">Про нас</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('recipes') }}">Рецепти</a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex align-items-center logo-custom-brand me-lg-0">
+                    <div class="center-icon">
+                        <img src="../static/assets/favicon1.png" alt="Іконка меду" width="65" height="65">
+                    </div>
+                    <div class="logo">
+                        <span class="pure">Мед для</span>
+                        <span class="maple">МАМИ</span>
+                    </div>
+                </div>
+
+                <ul class="navbar-nav mb-2 mb-lg-0 custom-links nav-right-group">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('shop') }}">Магазин</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('cart') }}">Кошик</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+<h4 style="margin-top: 60px; color: #4B3621; text-align: center; font-family: Arial, sans-serif; font-weight: bold;">Запечені яблука з медом</h4>    
+
+
+<div class="row no-gutters" style = "margin-top: 70px;">
+  <div class="col-12 col-sm-4 col-md-8">
+    <img src = "../static/assets/apple.jpeg" style="margin-left: 70px; width: 80%; height: 500px;">
+  </div>
+  <div class="col-8 col-md-4">
+    <p class = "description"  style="margin-right: 65px;">Запечені яблука з медом — це простий, але неймовірно ароматний десерт, який поєднує натуральну солодкість фруктів із ніжним медовим присмаком. Під час запікання яблука стають м’якими, соковитими, а мед утворює на їх поверхні легку карамельну глазур. Додайте трохи кориці чи горіхів — і отримаєте справжню насолоду з дитинства. Цей десерт не лише смачний, а й корисний: він зберігає всі вітаміни та природний смак яблук. Ідеальний вибір для затишного вечора або легкого солодкого перекусу.</p>
+  </div>
+</div>
+
+<h1 style="margin-top: 65px; text-align: left; color: #4B3621; font-family: Arial, sans-serif; font-size: 30px; background-color: #FFF8E1; margin-left: 120px;">Інгредієнти</h1>
+
+<div class="ingredients-list-wrapper" style="background-color: #FFF8E1; padding: 20px 0;">
+    <div class="container">
+
+        <div class="controls text-center mb-4">
+            <label for="portions" style="font-weight: bold; color: #4B3621;">Кількість порцій:</label>
+            <input type="number" id="portions" value="4" data-base-portions="4"
+       min="1" step="1" oninput="recalcIngredients()"
+       style="padding: 5px 10px; width: 80px; border: 1px solid #ccc; border-radius: 4px; text-align: center; font-weight: bold;">
+        </div>
+
+        <div class="row justify-content-center" style="margin-left: 10px;">
+            <ul class="col-md-8 col-lg-7" id="ingredient-list">
+                <li data-original-amount="25">Масло: <span class="amount">25</span> г</li>
+                <li data-original-amount="4">Яблука: <span class="amount">4</span> шт.</li>
+                <li data-original-amount="50">Мед: <span class="amount">50</span> г</li>
+                <li data-original-amount="80">Горіхи: <span class="amount">80</span> г</li>
+            </ul>
+        </div>
+
+        <div class="col-lg-5 col-md-12 text-center align-self-start mt-4 mt-lg-0" style="margin-left: 200px;">
+            <img src="../static/assets/apple_ingr.webp" alt="Інгредієнти"
+                 class="img-fluid rounded shadow-sm" style="max-height: 350px; object-fit: cover;">
+        </div>
+
+    </div>
+</div>
+
+<p style="text-align: left; margin-top: 10px; margin-left: 120px;">
+    <small>Оригінальний рецепт розрахований на <span id="base-portions-display">4</span> порції.</small>
+</p>
+
+    <div class = "steps">
+        <h3>Крок 1</h3>
+        <p>Спочатку беремо яблука миємо та розрізаємо на двоє та вирізаємо серцевину.</p>
+        <h3>Крок 2</h3>
+        <p>Далі беремо деко та стелимо пергамент,туди викладаємо половинки яблук та в кожну половинку кладемо кубик вершкового масла та ставимо випікати в духовці при температурі 180 градусів до готовності.</p>
+        <h3>Крок 3</h3>
+        <p>Далі дістаємо яблука та викладаємо на тарілку та наливаємо сік яблука з вершковим маслом,що залишився на пергаменті, в кожну середину яблука.</p>
+        <h3>Крок 4</h3>
+        <p>Потім беремо поливаємо яблука медом та посипаємо горіхами.</p>
+    </div>
+
+
+
+
+
+
+<footer class="bg-body-tertiary text-center">
+  <div class="container p-4"></div>
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2025. Крафтове виробництво"Мед для МАМИ"
+    <a class="text-body">honeyformama@gmail.com</a>
+  </div>
+</footer>
+
+<script src = "../static/js/recipes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

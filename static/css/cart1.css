@@ -1,0 +1,156 @@
+.pure { color: #4B3621; font-size: 28px; font-weight: 200; letter-spacing: 5px; }
+                /* Загальний стиль для кнопок у підсумку */
+        .cart-summary .btn {
+            width: 100%;      /* Розтягуємо на всю ширину блоку */
+            padding: 12px;    /* Робимо їх вищими */
+            border-radius: 8px; /* Закруглені кути */
+            text-transform: uppercase; /* Текст великими літерами */
+            font-weight: bold;
+            margin-bottom: 10px; /* Відступ між кнопками */
+            text-align: center;
+            transition: all 0.3s ease; /* Плавна анімація при наведенні */
+        }
+
+        /* Стиль кнопки "Оформити замовлення" (Яскрава) */
+        .btn-checkout {
+            background-color: #ffc107; /* Медовий жовтий */
+            color: #4B3621;            /* Темно-коричневий текст */
+            border: 2px solid #ffc107;
+        }
+
+        .btn-checkout:hover {
+            background-color: #e0a800; /* Трохи темніший при наведенні */
+            border-color: #e0a800;
+        }
+
+        /* Стиль кнопки "Продовжити покупки" (Спокійна) */
+        .btn-continue {
+            background-color: transparent; /* Прозорий фон */
+            color: #6c757d;                /* Сірий текст */
+            border: 2px solid #ced4da;     /* Сіра рамка */
+        }
+
+        .btn-continue:hover {
+            background-color: #f8f9fa;     /* Світлий фон при наведенні */
+            color: #4B3621;                /* Текст стає коричневим */
+            border-color: #4B3621;         /* Рамка стає коричневою */
+        }
+
+        .maple { color: #4B3621; font-size: 42px; font-weight: 250; letter-spacing: 5px; }
+        .pure, .maple { text-transform: uppercase; }
+        body { margin: 0; font-family: Arial, sans-serif; background-color: #FFF8E1; padding-top: 100px; }
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            display: flex; justify-content: center; align-items: center;
+            padding: 20px 0; border-top: 7px solid #4B3621; border-bottom: 1px solid #FFF8E1;
+            background-color: #FFF8E1 !important; border-color: #4B3621 !important;
+        }
+        .navbar .container-fluid {
+            max-width: 1200px;
+        }
+        .navbar-nav .nav-link { color: #4B3621 !important; font-weight: bold; font-size: 18px; letter-spacing: 1.5px; padding: 0 15px; }
+        .logo-custom-brand { gap: 15px; margin: 10px 0; }
+        .nav-left-group{ margin-left: 180px; }
+        .nav-right-group{ margin-right: 180px; }
+        .logo { display: flex; flex-direction: column; align-items: center; text-align: center; line-height: 0.8; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+        /* Стилі кошика */
+        .cart-content { display: flex; gap: 30px; margin-top: 20px; }
+        .cart-items { flex: 2; }
+        .cart-summary {
+            flex: 1; min-width: 300px; padding: 20px; border: 1px solid #e0e0e0;
+            border-radius: 8px; background-color: #fff9e6; height: fit-content;
+        }
+        .cart-item { display: flex; align-items: center; border-bottom: 1px solid #f0f0f0; padding: 15px 0; gap: 15px; }
+        .item-img { width: 80px; height: 80px; object-fit: cover; border-radius: 4px; }
+        .item-details { flex-grow: 1; }
+        .item-quantity { display: flex; align-items: center; gap: 5px; }
+        .item-quantity input { width: 50px; padding: 5px; text-align: center; }
+        .item-total { min-width: 100px; text-align: right; }
+        .remove-btn { background: none; border: none; color: #cc0000; cursor: pointer; font-size: 14px; margin-left: auto; }
+        .summary-line { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed #f0e6c2; }
+        .summary-line.total { font-size: 1.2em; border-top: 2px solid #eebc1f; margin-top: 10px; padding-top: 10px; }
+        .btn-checkout, .btn-continue {
+            display: block; text-align: center; padding: 12px; margin-top: 15px;
+            border-radius: 6px; text-decoration: none; font-weight: bold;
+        }
+        .btn-checkout { background-color: #eebc1f; color: #333; border: none; }
+        .btn-continue { background-color: #f7f7f7; color: #555; border: 1px solid #ccc; }
+
+
+
+        @media (max-width: 991px) {
+            .nav-left-group, .nav-right-group {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+            .logo-custom-brand {
+                margin: 15px auto;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .cart-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .cart-items, .cart-summary {
+                flex: 1 1 100%;
+                min-width: unset;
+            }
+
+            .cart-item {
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: flex-start;
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            .item-img {
+                width: 60px;
+                height: 60px;
+            }
+
+            .item-details {
+                flex-basis: calc(100% - 75px); /
+            }
+
+            .item-details h3 {
+                font-size: 1em;
+            }
+
+            .item-price-unit {
+                font-size: 0.9em;
+            }
+
+            .item-quantity {
+                order: 3;
+                margin-top: 10px;
+                flex-grow: 1;
+                justify-content: flex-start;
+                min-width: 150px;
+            }
+
+            .item-total {
+                order: 4;
+                margin-top: 10px;
+                text-align: right;
+            }
+
+            .remove-btn {
+                order: 5;
+                margin-left: 0;
+                flex-basis: 100%;
+                text-align: left;
+                padding: 5px 0;
+            }
+
+            .nav-left-group, .nav-right-group {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }

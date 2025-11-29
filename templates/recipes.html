@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Крафтовий мед</title>
+    <link rel="icon" type="image/png" href="../static/assets/favicon1.png">
+    <link rel="stylesheet" href="../static/css/recipes.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-light fixed-top p-0 border-top border-4 border-warning">
+        
+        <div class="container-fluid">
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myCustomNavbar" aria-controls="myCustomNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse justify-content-between" id="myCustomNavbar">
+                
+                <ul class="navbar-nav mb-2 mb-lg-0 custom-links nav-left-group">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('home') }}">Про нас</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('recipes') }}">Рецепти</a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex align-items-center logo-custom-brand me-lg-0">
+                    <div class="center-icon">
+                        <img src="../static/assets/favicon1.png" alt="Іконка меду" width="65" height="65">
+                    </div>
+                    <div class="logo">
+                        <span class="pure">Мед для</span>
+                        <span class="maple">МАМИ</span>
+                    </div>
+                </div>
+
+                <ul class="navbar-nav mb-2 mb-lg-0 custom-links nav-right-group">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('shop') }}">Магазин</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('cart') }}">Кошик</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+<h4 style="margin-top: 70px; color: #4B3621; text-align: center; font-family: Arial, sans-serif; font-weight: bold;">Рецепти з використанням меду</h4>    
+
+<div class="row" style="margin-top: 40px; padding: 0 65px;">
+  <div class="col-md-4 mb-3 mb-sm-0">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">МЕДІВНИК</h5>
+        <img src = "../static/assets/medivnyk.jpg" class="card-img-recipe">
+        <p class="card-text">Медівник – це досить особливий десерт, адже він незмінно викликає якісь домашні асоціації. Можливо, це через отой ніжний сметанний крем, що його часто готували бабусі й мами, а в когось і сам торт часто зʼявлявся на столі до різних свят.</p>
+        <a href="{{ url_for('medivnyk') }}" class="btn btn-outline-secondary">Переглянути</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">МЛИНЦІ З МЕДОВОЮ ПОЛИВКОЮ</h5>
+        <img src = "../static/assets/mlunchi.jpeg" class="card-img-recipe">
+        <p class="card-text">Ці млинці стануть зіркою вашого столу. Рецепт простий, але результат завжди вражає: ідеально тонкі, але не рвані, з золотистою скоринкою. Головний секрет — медова поливка.</p>
+        <a href="{{ url_for('pancakes') }}" class="btn btn-outline-secondary">Переглянути</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">КЕКСИ З МЕДОМ</h5>
+        <img src = "../static/assets/keks.jpg" class="card-img-recipe">
+        <p class="card-text">Ці медові кекси — це справжнє втілення осіннього затишку. Завдяки нашому натуральному меду, вони набувають неперевершеного золотистого відтінку та глибокого, теплого аромату, який наповнить ваш дім.</p>
+        <a href="{{ url_for('cupcakes') }}" class="btn btn-outline-secondary">Переглянути</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" style="margin-top: 40px; padding: 0 65px;">
+  <div class="col-md-4 mb-3 mb-sm-0">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">ПАХЛАВА МЕДОВА</h5>
+        <img src = "../static/assets/pahlava.jpg" class="card-img-recipe">
+        <p class="card-text">Пахлава — це не просто десерт, це справжнє свято смаку! Традиційні східні ласощі, що складаються з десятків тонких, хрустких шарів тіста Філо, щедро прошарованих сумішшю рубаних горіхів і залитих густим, ароматним медовим сиропом.</p>
+        <a href="{{ url_for('pahlava') }}" class="btn btn-outline-secondary">Переглянути</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">ГАРБУЗОВИЙ ПИРІГ З МЕДОМ</h5>
+        <img src = "../static/assets/harbuz.jpg" class="card-img-recipe">
+        <p class="card-text">Цей пиріг — справжня класика, доповнена натуральною солодкістю нашого меду. Він ідеально поєднує крихке пісочне тісто та ніжну, кремову гарбузову начинку, збагачену теплими осінніми спеціями.</p>
+        <a href="{{ url_for('pie') }}" class="btn btn-outline-secondary">Переглянути</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">ЗАПЕЧЕНІ ЯБЛУКА З МЕДОМ</h5>
+        <img src = "../static/assets/apple.jpeg" class="card-img-recipe">
+        <p class="card-text">Запечені яблука з медом — це той десерт, який поєднує в собі неперевершений смак та максимальну користь. Вони готуються неймовірно просто і швидко, перетворюючи звичайний плід на ніжний, карамелізований скарб.</p>
+        <a href="{{ url_for('apples') }}" class="btn btn-outline-secondary">Переглянути</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<footer class="bg-body-tertiary text-center">
+  <div class="container p-4"></div>
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2025. Крафтове виробництво"Мед для МАМИ"
+    <a class="text-body">honeyformama@gmail.com</a>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
